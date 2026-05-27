@@ -160,11 +160,14 @@ class ReadingGameApp:
 
         self.score_label = tk.Label(
             root,
-            text="Sticker Score: 0 ⭐",
+            text=self._score_text(),
             font=("Arial", 16, "bold"),
             bg="#dff7ff",
         )
         self.score_label.pack(pady=10)
+
+    def _score_text(self) -> str:
+        return f"Sticker Score: {self.score} ⭐"
 
     def start_game(self) -> None:
         name = self.name_entry.get().strip()
@@ -175,7 +178,7 @@ class ReadingGameApp:
         self.child_name = name
         self.score = 0
         self.sentence_pool = []
-        self.score_label.config(text="Sticker Score: 0 ⭐")
+        self.score_label.config(text=self._score_text())
         self.greeting_label.config(text=f"Hi {self.child_name}! Click the balloon to read.")
         self.balloon_button.config(state=tk.NORMAL)
 
@@ -212,7 +215,7 @@ class ReadingGameApp:
 
         popup_score = tk.Label(
             popup,
-            text=f"Sticker Score: {self.score} ⭐",
+            text=self._score_text(),
             font=("Arial", 14),
             bg="#fff9d8",
         )
@@ -223,8 +226,8 @@ class ReadingGameApp:
 
         def earn_sticker() -> None:
             self.score += 1
-            self.score_label.config(text=f"Sticker Score: {self.score} ⭐")
-            popup_score.config(text=f"Sticker Score: {self.score} ⭐")
+            self.score_label.config(text=self._score_text())
+            popup_score.config(text=self._score_text())
             cheer_label.config(text="Great reading! You earned a sticker! 🎉")
             sticker_button.config(state=tk.DISABLED)
 
