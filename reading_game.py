@@ -119,7 +119,7 @@ class ReadingGameApp:
 
         self.name_label = tk.Label(
             root,
-            text="Enter kid name:",
+            text="Enter your name:",
             font=("Arial", 14, "bold"),
             bg="#dff7ff",
         )
@@ -169,7 +169,7 @@ class ReadingGameApp:
     def start_game(self) -> None:
         name = self.name_entry.get().strip()
         if not name:
-            messagebox.showwarning("Name needed", "Please type the kid name first.")
+            messagebox.showwarning("Name needed", "Please type your name first.")
             return
 
         self.child_name = name

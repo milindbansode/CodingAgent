@@ -10,7 +10,7 @@ python reading_game.py
 
 ## Game features
 
-- Enter the kid's name and start.
+- Enter the child's name and start.
 - Click the balloon to show a very easy reading sentence.
 - 100 simple sentences are included and shuffled for new prompts.
-- Kids can earn sticker score from the balloon popup.
+- Children can earn sticker score from the balloon popup.
