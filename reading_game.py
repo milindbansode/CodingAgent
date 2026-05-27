@@ -173,6 +173,9 @@ class ReadingGameApp:
             return
 
         self.child_name = name
+        self.score = 0
+        self.sentence_pool = []
+        self.score_label.config(text="Sticker Score: 0 ⭐")
         self.greeting_label.config(text=f"Hi {self.child_name}! Click the balloon to read.")
         self.balloon_button.config(state=tk.NORMAL)
 
