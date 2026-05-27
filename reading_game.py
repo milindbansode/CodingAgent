@@ -187,11 +187,18 @@ class ReadingGameApp:
 
     def show_sentence_popup(self) -> None:
         sentence = self._next_sentence()
+        self.balloon_button.config(state=tk.DISABLED)
 
         popup = tk.Toplevel(self.root)
         popup.title("Read this sentence")
         popup.geometry("440x260")
         popup.configure(bg="#fff9d8")
+
+        def close_popup() -> None:
+            self.balloon_button.config(state=tk.NORMAL)
+            popup.destroy()
+
+        popup.protocol("WM_DELETE_WINDOW", close_popup)
 
         text = tk.Label(
             popup,
@@ -234,7 +241,7 @@ class ReadingGameApp:
             popup,
             text="Close",
             font=("Arial", 11),
-            command=popup.destroy,
+            command=close_popup,
         )
         close_button.pack(pady=(4, 12))
 
